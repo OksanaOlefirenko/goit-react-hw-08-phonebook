@@ -1,8 +1,8 @@
 import { List } from './ContactList.styled';
 import { ContactItem } from '../ContactItem';
 import { useSelector } from 'react-redux';
-import { getFilter } from 'redux/contactsSlice';
-import { useGetContactsQuery } from 'redux/contactsApi';
+import { getFilter } from 'redux/contacts/contactsSlice';
+import { useGetContactsQuery } from 'redux/contacts/contactsApi';
 import { Loader } from 'components/Loader';
 import { useMemo } from 'react';
 
@@ -26,8 +26,8 @@ export const ContactList = () => {
         <Loader />
       ) : (
         <List>
-          {visibleContacts?.map(({ id, name, phone }) => (
-            <ContactItem key={id} name={name} number={phone} id={id} />
+          {visibleContacts?.map(({ id, name, number }) => (
+            <ContactItem key={id} name={name} number={number} id={id} />
           ))}
         </List>
       )}

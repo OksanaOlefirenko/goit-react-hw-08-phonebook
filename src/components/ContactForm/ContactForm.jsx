@@ -3,13 +3,13 @@ import { useState } from 'react';
 import {
   useCreateContactMutation,
   useGetContactsQuery,
-} from 'redux/contactsApi';
+} from 'redux/contacts/contactsApi';
 import { Loader } from 'components/Loader';
 import { toast } from 'react-hot-toast';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
   const [createContact, { isLoading }] = useCreateContactMutation();
   const { data: contacts } = useGetContactsQuery();
@@ -21,7 +21,7 @@ export const ContactForm = () => {
         setName(value);
         break;
       case 'number':
-        setPhone(value);
+        setNumber(value);
         break;
       default:
         return;
@@ -30,7 +30,7 @@ export const ContactForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const contact = { name, phone };
+    const contact = { name, number };
     const findName = contacts.find(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
@@ -38,13 +38,13 @@ export const ContactForm = () => {
     if (findName) {
       return toast.error(`${name} is already in contacts.`);
     }
-    const findNumber = contacts.find(contact => contact.phone === phone);
+    const findNumber = contacts.find(contact => contact.number === number);
     if (findNumber) {
       return toast.error('This phone number is already in contacts.');
     }
     createContact(contact);
     setName('');
-    setPhone('');
+    setNumber('');
     toast.success('Сontact added');
   };
 
@@ -68,7 +68,7 @@ export const ContactForm = () => {
         <Input
           type="tel"
           name="number"
-          value={phone}
+          value={number}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           onChange={handleChange}

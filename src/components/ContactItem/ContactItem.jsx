@@ -1,6 +1,6 @@
 import { Item, Button } from './ContactItem.styled';
 import PropTypes from 'prop-types';
-import { useDeleteContactMutation } from 'redux/contactsApi';
+import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
 import { Loader } from 'components/Loader';
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
