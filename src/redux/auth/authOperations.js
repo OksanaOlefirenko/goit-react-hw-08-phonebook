@@ -32,9 +32,7 @@ const logOut = createAsyncThunk('auth/logout', async () => {
   try {
     await axios.post('/users/logout');
     token.unset();
-  } catch (error) {
-    // TODO: Добавить обработку ошибки error.message
-  }
+  } catch (error) {}
 });
 
 const fetchCurrentUser = createAsyncThunk(
@@ -52,7 +50,7 @@ const fetchCurrentUser = createAsyncThunk(
       const { data } = await axios.get('/users/current');
       return data;
     } catch (error) {
-      // TODO: Добавить обработку ошибки error.message
+      // TODO:
     }
   }
 );

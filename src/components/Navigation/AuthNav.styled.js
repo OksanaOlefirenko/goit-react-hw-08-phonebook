@@ -4,10 +4,10 @@ import styled from 'styled-components';
 export const Link = styled(NavLink)`
   display: inline-block;
   text-decoration: none;
-  padding: 12;
+  padding-right: 25px;
   font-weight: 700;
-  color: #2a363b;
+  color: #a5acaf;
   &.active {
-    color: #e84a5f;
+    color: white;
   }
 `;

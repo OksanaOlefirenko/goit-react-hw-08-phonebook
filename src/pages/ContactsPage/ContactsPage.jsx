@@ -1,17 +1,30 @@
-import { ContactForm } from 'components/ContactForm';
+import { Form } from 'components/Form';
 import { ContactList } from 'components/ContactList';
 import { Filter } from 'components/Filter';
 import { useGetContactsQuery } from 'redux/contacts/contactsApi';
+import { useAddContact } from 'redux/hooks/useAddContact';
+import { Container } from './ContactsPage.styled';
 
-export const ContactsPage = () => {
+const ContactsPage = () => {
   const { data } = useGetContactsQuery();
+  const { register, handleSubmit, errors, isLoading, onSubmit } =
+    useAddContact();
   return (
-    <div>
+    <Container>
       <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
+      <Form
+        btnText="Add contact"
+        onSubmit={onSubmit}
+        isLoading={isLoading}
+        register={register}
+        handleSubmit={handleSubmit}
+        errors={errors}
+      />
       {data && (data.length > 1 ? <Filter /> : '')}
+      <h2>Contacts</h2>
       <ContactList />
-    </div>
+    </Container>
   );
 };
+
+export default ContactsPage;

@@ -1,9 +1,9 @@
-import { Input } from 'components/ContactForm/ContactForm.styled';
+import { Input } from 'components/Form/Form.styled';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
 
-export const RegisterPage = () => {
+const RegisterPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -82,3 +82,5 @@ export const RegisterPage = () => {
     </div>
   );
 };
+
+export default RegisterPage;

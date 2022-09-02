@@ -1,9 +1,14 @@
-import { Container, Title } from './HomePage.styled';
+import { Container, Title, Image, TitleAccent } from './HomePage.styled';
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
     <Container>
-      <Title>Welcome to the Phonebook</Title>
+      <Title>
+        Welcome to your private <TitleAccent>Phonebook</TitleAccent>
+      </Title>
+      <Image />
     </Container>
   );
 };
+
+export default HomePage;

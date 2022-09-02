@@ -11,7 +11,7 @@ export const Filter = () => {
   };
   return (
     <Label>
-      Find contacts by name
+      Find contacts by name:
       <Input
         type="text"
         name="filter"
