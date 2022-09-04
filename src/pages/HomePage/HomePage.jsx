@@ -1,4 +1,4 @@
-import { Container, Title, Image, TitleAccent } from './HomePage.styled';
+import { Container, Title, TitleAccent } from './HomePage.styled';
 
 const HomePage = () => {
   return (
@@ -6,7 +6,6 @@ const HomePage = () => {
       <Title>
         Welcome to your private <TitleAccent>Phonebook</TitleAccent>
       </Title>
-      <Image />
     </Container>
   );
 };

@@ -14,10 +14,10 @@ export const Overlay = styled.div`
 `;
 
 export const ModalBox = styled.div`
-  /* position: relative; */
   max-width: calc(100vw - 300px);
   max-height: calc(100vh - 50px);
   background-color: white;
+  position: relative;
 `;
 
 export const CloseBtn = styled.button`
@@ -26,12 +26,13 @@ export const CloseBtn = styled.button`
   right: 5px;
   border: none;
   border-radius: 50%;
-  background-color: #1976d2;
-  color: white;
+  background-color: #919297;
+  color: black;
   display: flex;
   align-items: center;
   padding: 3px;
   &:hover {
-    background-color: #1565c0;
+    background-color: black;
+    color: white;
   }
 `;

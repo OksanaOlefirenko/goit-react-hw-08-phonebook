@@ -17,7 +17,7 @@ export const Label = styled.label`
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
-  color: white;
+  color: #171818;
   font-weight: 700;
   font-size: 20px;
 `;
@@ -45,6 +45,7 @@ export const BtnSubmit = styled.button`
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  background-color: #919297;
   transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {

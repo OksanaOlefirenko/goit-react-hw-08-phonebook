@@ -1,10 +1,10 @@
 import {
   Item,
-  BtnDelete,
-  BtnEdit,
-  Delete,
-  Edit,
   AvatarIcon,
+  ButtonDel,
+  ButtonEdit,
+  ContactsInfo,
+  Contact,
 } from './ContactItem.styled';
 import PropTypes from 'prop-types';
 import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
@@ -13,6 +13,8 @@ import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { useState } from 'react';
 import { Modal } from 'components/Modal';
+import { MdDeleteForever } from 'react-icons/md';
+import { FiEdit } from 'react-icons/fi';
 
 export const ContactItem = ({ id, name, number }) => {
   const [deleteContact, { isLoading: isDeleting, isSuccess }] =
@@ -31,25 +33,21 @@ export const ContactItem = ({ id, name, number }) => {
   return (
     <>
       <Item key={id}>
-        <AvatarIcon>{name.charAt(0).toUpperCase()}</AvatarIcon>
-        <p>
-          {name}: {number}
-        </p>
-        <BtnDelete
-          type="button"
-          onClick={() => deleteContact(id)}
-          disabled={isDeleting}
-          variant="outlined"
-          startIcon={<Delete />}
-        >
-          {isDeleting && <Loader />}
-        </BtnDelete>
-        <BtnEdit
-          type="button"
-          onClick={showModal}
-          variant="outlined"
-          startIcon={<Edit />}
-        />
+        <ContactsInfo>
+          <AvatarIcon>{name.charAt(0).toUpperCase()}</AvatarIcon>
+          <Contact>
+            {name}: {number}
+          </Contact>
+        </ContactsInfo>
+        <div>
+          <ButtonDel type="button" onClick={() => deleteContact(id)}>
+            <MdDeleteForever size={20} />
+            {isDeleting && <Loader />}
+          </ButtonDel>
+          <ButtonEdit type="button" onClick={showModal}>
+            <FiEdit size={20} />
+          </ButtonEdit>
+        </div>
       </Item>
       {modalOpen && (
         <Modal onClose={showModal} isModalOpen={modalOpen} id={id} />
