@@ -9,7 +9,7 @@ export const Loader = () => {
         height="80"
         width="80"
         radius="10"
-        color="green"
+        color="white"
       />
     </StyledLoader>
   );
