@@ -3,9 +3,6 @@ import { createPortal } from 'react-dom';
 import { Overlay, ModalBox, CloseBtn } from './Modal.styled';
 import PropTypes from 'prop-types';
 import CloseIcon from '@mui/icons-material/Close';
-
-// import toast from 'react-hot-toast';
-// import { useForm } from 'react-hook-form';
 import { Form } from 'components/Form';
 import { useModalFormControl } from 'redux/hooks/useModalFormControl';
 
