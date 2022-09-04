@@ -10,7 +10,6 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { contactsApi } from './contacts/contactsApi';
-// import { setupListeners } from '@reduxjs/toolkit/query';
 import { contactsSlice } from '../redux/contacts/contactsSlice';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth';
@@ -35,12 +34,6 @@ export const store = configureStore({
     }),
     contactsApi.middleware,
   ],
-  // devTools: process.env.NODE_ENV === 'development',
 });
-
-// export const contactsReducer = persistReducer(
-//   persistConfig,
-//   contactsSlice.reducer
-// );
 
 export const persistor = persistStore(store);

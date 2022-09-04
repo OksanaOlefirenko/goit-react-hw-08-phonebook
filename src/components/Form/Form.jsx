@@ -1,4 +1,3 @@
-// import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { Loader } from 'components/Loader';
 import { FormBox, Input, Label, Error, BtnSubmit } from './Form.styled';
